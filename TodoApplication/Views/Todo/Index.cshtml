@@ -1,0 +1,61 @@
+﻿@model List<Todo> ;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+<div class="d-flex justify-content-around align-items-center m-4 ">
+
+    <h1>All Todos</h1>
+    <a class="btn btn-primary me-3 " asp-action="Create" >  Add Todo</a>
+
+</div>
+
+<div class="d-flex justify-content-center align-items-center">
+    @if (Model.Count == 0)
+    {
+        <div class="alert alert-info"> no Todos For Today Go to Sleep </div>
+    }
+    else{
+        <table class="table table-bordered table-hover table-active">
+            <thead>
+                <tr>
+                    <th>
+                        id
+                    </th>
+                    <th>
+                        Todo Name
+                    </th>
+                    <th>
+                        Is Finished
+                    </th>
+                    <th class="text-center" colspan="3">
+                        operations
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.id</td>
+                        <td>@item.Name</td>
+                        <td>@item.isFinished</td>
+
+                        <td> <a class="btn btn-warning" asp-action="Details" asp-route-id=@item.id>Details </a></td>
+                        <td> <a class="btn btn-secondary" asp-action="Update" asp-route-id=@item.id>Update </a></td>
+                        <td> <a class="btn btn-danger" asp-action="Delete" asp-route-id=@item.id>Delete </a></td>
+                    </tr>
+
+                }
+
+            </tbody>
+
+        </table>
+
+    }
+    
+    
+
+</div>
+

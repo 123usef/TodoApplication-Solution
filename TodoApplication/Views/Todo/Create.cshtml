@@ -1,0 +1,41 @@
+﻿@model Todo
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<div class="container d-flex flex-column justify-content-around align-items-around w-75">
+        <form method="post" >
+        <div class="d-flex justify-content-between align-items-between">
+            <label for="Name"> todo Title : </label>
+            <input class="form-control" type="text" placeholder="enter todo Title" asp-for="Name" />
+
+        </div>
+        
+        <div class="d-flex">
+            <label for="Description"> todo Description : </label>
+            <input class="form-control" type="text" placeholder="enter todo Title" asp-for="Description" />
+
+        </div>
+        <div class="d-flex">
+            <label for="Name"> Created At  : </label>
+            <input class="form-control" type="datetime" placeholder="enter todo Title" asp-for="CreatedAt" />
+
+        </div>
+        <div class="d-flex">
+            <label for="DeadLine"> todo DeadLine : </label>
+            <input class="form-control" type="datetime" placeholder="enter todo Title" asp-for="DeadLine" />
+
+        </div>
+        <div class="d-flex">
+
+        <label for="isFinished"> todo Is Finished : </label>
+        <input class="form-check" type="checkbox" placeholder="enter todo Title" asp-for="isFinished" />
+
+        </div>
+
+        <input  type="submit"   class="btn btn-primary"/>
+        </form>
+</div>

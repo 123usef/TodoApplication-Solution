@@ -1,0 +1,32 @@
+﻿@model Todo
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Detailed Todo</h1>
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-body">
+            <h3 class="card-title"> @Model.Name </h3>
+            <div class="card-text">
+                @Model.Description
+            </div>
+            <span class="disabled" > @Model.DeadLine </span>
+            @if (Model.isFinished ==true)
+            {
+                <div class="bg-success"> Task Is Finished   </div>
+            }
+            else
+            {
+                <div class="bg-info"> Task Is Not Finished   </div>
+
+            }
+            
+        </div>
+    </div>
+
+
+</div>
